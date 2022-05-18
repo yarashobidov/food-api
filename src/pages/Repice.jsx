@@ -13,7 +13,6 @@ function Repice() {
     );
     const data = await api.json();
     setRepice(data);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -40,7 +39,10 @@ function Repice() {
         </Button>
         {active === "Instructions" && (
           <div>
-            <h3 dangerouslySetInnerHTML={{ __html: repice.summary }}></h3>
+            <div
+              className="text"
+              dangerouslySetInnerHTML={{ __html: repice.summary }}
+            ></div>
             {/* <h3 dangerouslySetInnerHTML={{ __html: repice.instructions }}></h3> */}
           </div>
         )}
@@ -60,7 +62,9 @@ function Repice() {
 const DetailWrapper = styled.div`
   margin-top: 10rem;
   margin-bottom: 5rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 44% 47%;
+  justify-content: space-between;
   .active {
     background: linear-gradient(35deg, #494949, #313131);
     color: white;
@@ -75,6 +79,34 @@ const DetailWrapper = styled.div`
   ul {
     margin-top: 2rem;
   }
+  img {
+    max-width: 100%;
+  }
+  @media screen and (max-width: 1024px) {
+    margin-top: 7rem;
+    margin-bottom: 3rem;
+  }
+  @media screen and (max-width: 800px) {
+    grid-template-columns: 46% 49%;
+    h2 {
+      margin-bottom: 1.6rem;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 90%;
+    margin-top: 5rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    img {
+      margin-bottom: 20px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    grid-template-columns: 95%;
+    h2 {
+      font-size: 1.2em;
+    }
+  }
 `;
 
 const Button = styled.button`
@@ -84,9 +116,38 @@ const Button = styled.button`
   border: 2px solid black;
   margin-right: 2rem;
   font-weight: 600;
+
+  @media screen and (max-width: 1024px) {
+    margin-right: 1rem;
+  }
+  @media screen and (max-width: 800px) {
+    padding: 1rem 1.5rem;
+  }
+  @media screen and (max-width: 375px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 const Info = styled.div`
-  margin-left: 10rem;
+  .text {
+    font-size: 1.5rem;
+    color: rgb(56, 56, 56);
+    line-height: 2.5rem;
+    margin: 2rem 0;
+  }
+  @media screen and (max-width: 800px) {
+    .text {
+      margin: 1.6rem 0;
+      font-size: 1.2rem;
+      line-height: 2rem;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .text {
+      margin: 1.2rem 0 1.6rem;
+      font-size: 1rem;
+      line-height: 1.7rem;
+    }
+  }
 `;
 
 export default Repice;

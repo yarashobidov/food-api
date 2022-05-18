@@ -3,12 +3,15 @@ import Pages from "./pages/Pages";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import SearchInput from "./components/SearchInput";
 import styled from "styled-components";
+import logo from "./images/logo.svg";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Logo to={`/`}>Home</Logo>
+        <Logo to={`/`}>
+          <img src={logo} alt={logo} />
+        </Logo>
         <SearchInput />
         <Category />
         <Pages />
@@ -18,6 +21,8 @@ function App() {
 }
 
 const Logo = styled(NavLink)`
+width: 60px;
+height: 60px;
   font-size: 2rem;
   font-weight: 600;
   display: block;

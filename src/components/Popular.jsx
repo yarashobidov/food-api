@@ -23,17 +23,22 @@ function Popular() {
       setPopular(data.recipes);
       localStorage.setItem("popular", JSON.stringify(data.recipes));
     }
-
-    console.log(popular);
   };
 
   return (
     <Wrapper>
-      <h3>Popular Picks</h3>
+      <h3 className="title">Popular Picks</h3>
       <Splide
         options={{
           perPage: 4,
           arrows: false,
+          breakpoints: {
+            1024: { perPage: 3 },
+            768: {
+              perPage: 2,
+            },
+            500: { perPage: 1 },
+          },
           pagination: false,
           drag: "free",
           gap: "5rem",
@@ -42,9 +47,9 @@ function Popular() {
         {popular.map((e) => (
           <SplideSlide key={e.id}>
             <Card>
-            <Link to={'/repice/' + e.id} >
-              <p>{e.title}</p>
-              <img src={e.image} alt={e.title} />
+              <Link to={"/repice/" + e.id}>
+                <p>{e.title}</p>
+                <img src={e.image} alt={e.title} />
               </Link>
               <Gradient />
             </Card>

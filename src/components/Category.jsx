@@ -30,6 +30,12 @@ const List = styled.div`
   display: flex;
   justify-content: center;
   margin: 0 20px;
+  @media screen and (max-width: 1024px) {
+    margin: 0 10px;
+  }
+  @media screen and (max-width: 768px) {
+    margin: 0;
+  }
 `;
 const TabLink = styled(NavLink)`
   display: flex;
@@ -44,19 +50,41 @@ const TabLink = styled(NavLink)`
   height: 6rem;
   cursor: pointer;
   transform: scale(0.8);
-  h4{
-      color: white;
-      font-size: 0.8rem;
+  @media screen and (max-width: 500px) {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-right: 1.2rem;
+    h4 {
+      font-size: 0.7em;
+    }
+    svg {
+      font-size: 1.3em;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 0.5em;
+    h4 {
+      font-size: 0.5em;
+    }
+    svg {
+      font-size: 1.1em;
+    }
   }
 
-  svg{
-      color: white;
-      font-size: 1.5rem;
+  h4 {
+    color: white;
+    font-size: 0.8rem;
   }
 
-  &.active{
-      background: linear-gradient( to right, #f27121, #e94057);
-      
+  svg {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  &.active {
+    background: linear-gradient(to right, #f27121, #e94057);
   }
 `;
 

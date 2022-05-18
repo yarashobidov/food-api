@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { REACT_KEY } from "../key";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "@splidejs/react-splide/css";
 
 function Vaget() {
@@ -27,10 +27,16 @@ function Vaget() {
 
   return (
     <Wrapper>
-      <h3>Our Vegetarian Picks</h3>
+      <h3 className="title">Our Vegetarian Picks</h3>
       <Splide
         options={{
           perPage: 3,
+          breakpoints: {
+            1024: { perPage: 2 },
+            650: {
+              perPage: 1,
+            },
+          },
           arrows: false,
           pagination: false,
           drag: "free",
